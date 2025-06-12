@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                     python3 -m venv $VENV_DIR
-                    source $VENV_DIR/bin/activate
+                    . $VENV_DIR/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
                 '''
@@ -26,8 +26,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    source $VENV_DIR/bin/activate
-                    # Replace with your test framework if needed (e.g. pytest, unittest)
+                    . $VENV_DIR/bin/activate
                     python -m unittest discover -s tests
                 '''
             }
@@ -36,8 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    source $VENV_DIR/bin/activate
-                    # Example: start the app (adjust based on your main script)
+                    . $VENV_DIR/bin/activate
                     nohup python main.py &
                 '''
             }
