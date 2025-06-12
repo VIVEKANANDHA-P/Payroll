@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        REPO_URL = 'https://github.com/Duisternis/Payroll-Management-System.git'
+        REPO_URL = 'https://github.com/VIVEKANANDHA-P/Payroll.git'
         VENV_DIR = 'venv'
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git url: "${REPO_URL}", branch: 'main'
+                git url: "${https://github.com/VIVEKANANDHA-P/Payroll.git}", branch: 'main'
             }
         }
 
